@@ -123,7 +123,10 @@ export default function ImageUpload() {
                 fullWidth
                 variant="contained"
                 disabled={images.length === 0 || isCompressing}
-                onClick={() => { uploadImages(images) }}
+                onClick={async()=>{
+                    await uploadImages(images)
+                    setImages([])
+                }}
                 sx={{
                     py: 1.5,
                     borderRadius: 2,
